@@ -12,6 +12,7 @@ services:
       - rh_core_network
     depends_on:
       - db
+      - mailhog
 
   nginx:
     image: nginx:alpine
