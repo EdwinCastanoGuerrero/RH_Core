@@ -49,12 +49,19 @@ class FortifyServiceProvider extends ServiceProvider
             );
         });
 
+        //Tela de login
         Fortify::loginView(function () {
             return view('auth.login');
         });
 
+        //Tela de esqueci minha senha
         Fortify::requestPasswordResetLinkView(function(){
             return view('auth.forgot-password');
+        });
+
+        //Tela de resetar senha
+        Fortify::resetPasswordView(function ($request) {
+            return view('auth.reset-password', ['token' => $request->route('token')]);
         });
     }
 }
