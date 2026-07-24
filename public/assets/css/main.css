@@ -1,5 +1,8 @@
 body {
     background-color: #eee;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .bg-color-1 {
@@ -15,10 +18,11 @@ body {
 .sidebar a {
     color: #000;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 10px 10px;
 }
 
 .sidebar a:hover {
     background-color: #333;
     color: #fff;
+    border-radius: 5px;
 }

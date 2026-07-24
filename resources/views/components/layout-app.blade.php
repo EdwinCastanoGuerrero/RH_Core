@@ -18,8 +18,15 @@
 <body>
     <x-user-bar />
 
-    {{ $slot }}
+    <div class="d-flex flex-grow-1">
 
+        <x-side-bar />
+
+        <div class="flex-grow-1 m-3 p-3">
+            {{ $slot }}
+        </div>
+
+    </div>
     <!-- resources -->
     <script src="{{ asset('assets/datatables/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/bootstrap/bootstrap.bundle.min.js') }}"></script>

@@ -2,8 +2,8 @@
 
     <h1 class="text-center">DENTRO DA APP</h1>
 
-    @php
-        dump(auth()->user());
-    @endphp
+    @can('admin')
+        <h2>Aqui está logado o Admin</h2>
+    @endcan
 
 </x-layout-app>
