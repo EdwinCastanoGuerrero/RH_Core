@@ -6,13 +6,14 @@ body {
 }
 
 .bg-color-1 {
-    background-color: #000000;
+    background-color: #cecece;
 }
 
 .sidebar {
-    background-color: #bbb;
+    /* background-color: #bbb; */
     padding: 20px;
     border-radius: 0px 10px 10px 0px;
+    min-width: 300px !important;
 }
 
 .sidebar a {

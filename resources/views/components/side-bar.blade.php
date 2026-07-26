@@ -10,7 +10,7 @@
 
     <hr>
 
-    <a href="#" class=""><i class="fas fa-cog me-3"></i>User profile</a>
+    <a href="{{ route('user.profile') }}" class=""><i class="fas fa-cog me-3"></i>User profile</a>
     
     <hr>
     
@@ -18,7 +18,7 @@
     <div class="text-center mt-auto mb-3">
         <form action="{{ route('logout') }}" method="post">
             @csrf
-            <button type="submit" class="btn btn-sm btn-outline-dark">
+            <button type="submit" class="btn btn-sm btn-outline-dark p-2">
                 <i class="fas fa-sign-out-alt me-3"></i>Logout
             </button>
         </form>

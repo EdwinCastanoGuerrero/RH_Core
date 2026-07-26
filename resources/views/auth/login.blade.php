@@ -1,6 +1,6 @@
 <x-layout-guest page-title="Login">
 
-    <div class="bg-white min-vh-100 d-flex align-items-center">
+    <div class="bg-slate min-vh-100 d-flex align-items-center">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-4">
@@ -36,7 +36,7 @@
 
                             <div class="d-flex justify-content-between align-items-center">
                                 <a href="{{ route('password.request') }}">Esqueceu a sua senha?</a>
-                                <button type="submit" class="btn btn-primary px-4">Entrar</button>
+                                <button type="submit" class="btn btn-secondary px-4">Entrar</button>
                             </div>
 
                         </form>
