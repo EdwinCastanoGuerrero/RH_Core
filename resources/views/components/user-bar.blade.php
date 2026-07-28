@@ -1,12 +1,12 @@
-<div class="d-flex justify-content-between bg-color-1 text-white py-1 px-3">
+<div class="d-flex justify-content-between bg-color-1 text-white py-3 px-3">
     
     <!-- logo -->
     <div class="d-flex align-items-center">
         <a href="{{ route('home') }}">
-            <img src="{{ asset('assets/images/favicon.png') }}" alt="logo" width="50px" class="img-fluid">
+            <img src="{{ asset('assets/images/favicon.png') }}" alt="logo" width="100px" class="img-fluid" >
         </a>
-        <h4 class="ms-3 text-primary m-0 p-0">
-            {{ config('app.name') }}
+        <h4 class="ms-3 m-0 p-0">
+            <span class="text-primary">RH</span><span class="text-success">Core</span>
         </h4>
     </div>
 

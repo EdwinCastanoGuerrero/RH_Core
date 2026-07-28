@@ -1,24 +1,32 @@
 body {
     background-color: #eee;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .bg-color-1 {
-    background-color: #000000;
+    background-color: #cecece;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0px 0px 3px #aaa;
 }
 
 .sidebar {
-    background-color: #bbb;
+    /* background-color: #bbb; */
     padding: 20px;
     border-radius: 0px 10px 10px 0px;
+    min-width: 300px !important;
 }
 
 .sidebar a {
     color: #000;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 10px 10px;
 }
 
 .sidebar a:hover {
     background-color: #333;
     color: #fff;
+    border-radius: 5px;
 }
