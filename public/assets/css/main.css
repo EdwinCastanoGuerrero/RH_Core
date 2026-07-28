@@ -7,6 +7,9 @@ body {
 
 .bg-color-1 {
     background-color: #cecece;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0px 0px 3px #aaa;
 }
 
 .sidebar {
