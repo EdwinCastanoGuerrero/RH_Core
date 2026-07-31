@@ -19,5 +19,13 @@ Route::middleware('auth')->group(function(){
 
     //Rota para o departamento
     Route::get('/departments', [DepartmentController::class, 'index'])->name('departments');
+    // Route::get('/departments/{department}', [DepartmentController::class, 'show'])->name('departments.show');
+    Route::get('/departments/add', [DepartmentController::class, 'newDepartment'])->name('department.add-department');
+    Route::post('/departments/create', [DepartmentController::class, 'store'])->name('department.create-department');
+    
+
+    Route::get('/departments/{department}/edit', [DepartmentController::class, 'edit'])->name('department.edit-department');
+    Route::put('/departments/{department}/update', [DepartmentController::class, 'update'])->name('department.update-department');
+    Route::delete('/departments/{department}/delete', [DepartmentController::class, 'destroy'])->name('department.delete-department');
     
 });
