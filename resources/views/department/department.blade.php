@@ -33,8 +33,12 @@
                             <td>{{ $department->name }}</td>
                             <td>
                                 <div class="d-flex gap-3 justify-content-end">
-                                    <a href="#" class="btn btn-sm btn-outline-dark"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</a>
-                                    <a href="#" class="btn btn-sm btn-outline-dark"><i class="fa-regular fa-trash-can me-2"></i>Delete</a>
+                                    @if($department->id === 1)
+                                        <i class="fa-solid fa-lock"></i>
+                                    @else
+                                        <a href="{{ route('department.edit-department', ['department' => $department->id]) }}" class="btn btn-sm btn-outline-dark"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</a>
+                                        <a href="{{ route('department.delete-department', ['department' => $department->id]) }}" class="btn btn-sm btn-outline-dark"><i class="fa-regular fa-trash-can me-2"></i>Delete</a>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

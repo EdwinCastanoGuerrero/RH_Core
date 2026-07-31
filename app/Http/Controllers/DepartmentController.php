@@ -40,4 +40,58 @@ class DepartmentController extends Controller
 
         return redirect()->route('departments');
     }
+
+    public function edit($id): View
+    {
+        Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
+
+        if(intval($id) === 1) {
+            abort(403, 'You are not authorized to edit this department');
+        }
+
+        $department = Department::findOrFail($id);
+
+        return view('department.edit-department', compact('department'));
+    }
+
+    public function update(Request $request, Department $department)
+    {
+        Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
+
+        // form validation
+        $request->validate([
+            'name' => 'required|string|max:50|unique:departments,name,' . $department->id
+        ]);
+
+        $department->update([
+            'name' => $request->name
+        ]);
+
+        return redirect()->route('departments');
+    }
+
+    public function destroy(Department $department)
+    {
+        Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
+
+        $department->delete();
+
+        return redirect()->route('departments');
+    }
+
+    public function updateDepartment(Request $request, Department $department)
+    {
+        Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
+
+        // form validation
+        $request->validate([
+            'name' => 'required|string|max:50|unique:departments,name,' . $department->id
+        ]);
+
+        $department->update([
+            'name' => $request->name
+        ]);
+
+        return redirect()->route('departments');
+    }
 }
