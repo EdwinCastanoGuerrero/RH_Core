@@ -74,9 +74,13 @@ class DepartmentController extends Controller
     {
         Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
 
+        if($department->id === 1) {
+            abort(403, 'You are not authorized to delete this department');
+        }
+
         $department->delete();
 
-        return redirect()->route('departments');
+        return view('department.delete-department-confirm', compact('department'));
     }
 
     public function updateDepartment(Request $request, Department $department)
