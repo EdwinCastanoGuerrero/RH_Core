@@ -30,4 +30,7 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/departments/{department}/delete', [DepartmentController::class, 'destroy'])->name('department.delete-department');
     Route::get('/departments/{department}/delete-confirm', [DepartmentController::class, 'deleteDepartmentConfirm'])->name('department.delete-department-confirm');
+
+
+    Route::get('/rh-users', [App\Http\Controllers\RHUserController::class, 'index'])->name('rh-users');
 });
