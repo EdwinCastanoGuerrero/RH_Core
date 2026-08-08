@@ -1,0 +1,61 @@
+
+<x-layout-app page-title="RH Resources">
+
+    <div class="w-100 p-4">
+
+        <h3>Human Resources Colaborators</h3>
+    
+        <hr>
+
+        <!-- Caso não haja departamentos -->
+        @if($users->count() === 0)
+            
+            <div class="text-center my-5">
+                <p>No human resources collaborators found.</p>
+                <a href="{{ route('colaborators.new-colaborator') }}" class="btn btn-primary">Create a new collaborator</a>
+            </div>
+
+        @else
+        
+            <div class="mb-3">
+                <a href="{{ route('colaborators.new-colaborator') }}" class="btn btn-primary">Create a new colaborator</a>
+            </div>
+        
+            <table class="table w-50" id="table">
+                <thead class="table-dark">
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Permission</th>
+                </thead>
+                <tbody>
+
+                    @foreach ($users as $user)
+                        
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            
+                            @php
+                                $permissions = json_decode($user->permissions);
+                            @endphp
+                            
+                            <td>{{ implode(', ', $permissions) }}</td>
+
+                            <td>
+                                <div class="d-flex gap-3 justify-content-end">
+                                    <a href="#" class="btn btn-sm btn-outline-dark"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</a>
+                                    <a href="#" class="btn btn-sm btn-outline-dark"><i class="fa-regular fa-trash-can me-2"></i>Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                    @endforeach
+
+                </tbody>
+            </table>
+
+        @endif
+    
+    </div>
+
+</x-layout-app>

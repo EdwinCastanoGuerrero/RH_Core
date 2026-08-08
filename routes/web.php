@@ -30,4 +30,13 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/departments/{department}/delete', [DepartmentController::class, 'destroy'])->name('department.delete-department');
     Route::get('/departments/{department}/delete-confirm', [DepartmentController::class, 'deleteDepartmentConfirm'])->name('department.delete-department-confirm');
+
+
+    Route::get('/rh-users', [App\Http\Controllers\RHUserController::class, 'index'])->name('colaborators.rh-users');
+    Route::get('/rh-users/new-colaborator', [App\Http\Controllers\RHUserController::class, 'newColaborator'])->name('colaborators.new-colaborator');
+
+    //Rota para criar um novo colaborador
+    Route::post('/rh-users/create-colaborator', [App\Http\Controllers\RHUserController::class, 'createColaborator'])->name('colaborators.create-colaborator');
+
+
 });
