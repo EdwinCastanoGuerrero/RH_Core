@@ -12,13 +12,13 @@
             
             <div class="text-center my-5">
                 <p>No human resources collaborators found.</p>
-                <a href="#" class="btn btn-primary">Create a new collaborator</a>
+                <a href="{{ route('colaborators.new-colaborator') }}" class="btn btn-primary">Create a new collaborator</a>
             </div>
 
         @else
         
             <div class="mb-3">
-                <a href="#" class="btn btn-primary">Create a new colaborator</a>
+                <a href="{{ route('colaborators.new-colaborator') }}" class="btn btn-primary">Create a new colaborator</a>
             </div>
         
             <table class="table w-50" id="table">
