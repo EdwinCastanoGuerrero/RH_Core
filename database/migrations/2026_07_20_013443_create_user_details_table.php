@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->string('address', 100);
-            $table->string('zip_code', 10);
-            $table->string('city', 50);
-            $table->string('phone', 20);
-            $table->decimal('salary', 10, 2);
-            $table->date('admission_date');
+            $table->string('address', 100)->nullable();
+            $table->string('zip_code', 10)->nullable();
+            $table->string('city', 50)->nullable();
+            $table->string('phone', 20)->nullable();
+            $table->decimal('salary', 10, 2)->nullable();
+            $table->date('admission_date')->nullable();
             $table->timestamps();
         });
     }

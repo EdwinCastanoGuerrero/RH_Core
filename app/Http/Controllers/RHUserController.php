@@ -6,6 +6,7 @@ use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class RHUserController extends Controller
 {
@@ -29,23 +30,38 @@ class RHUserController extends Controller
     {
         Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
 
-        //Validação dos dados do formulário
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email',
-            'password' => 'required|string|min:8|confirmed',
             'department_id' => 'required|exists:departments,id',
+            'address' => 'nullable|string|max:255',
+            'zip_code' => 'nullable|string|max:20',
+            'city' => 'nullable|string|max:100',
+            'phone' => 'nullable|string|max:20',
+            'salary' => 'nullable|numeric|min:0',
+            'admission_date' => 'nullable|date_format:Y-m-d',
         ]);
 
-        //Criação do novo colaborador
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->role = 'rh';
-        $user->department_id = $request->department_id;
-        $user->permissions = '["rh"]'; // Definindo a permissão como 'rh'
-        $user->save();
+        $defaultPassword = 'Rh@' . Str::upper(Str::random(6));
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($defaultPassword),
+            'role' => 'rh',
+            'department_id' => $request->department_id,
+            'permissions' => '["rh"]',
+        ]);
+
+        $user->userDetails()->create([
+            'address' => $request->filled('address') ? $request->address : null,
+            'zip_code' => $request->filled('zip_code') ? $request->zip_code : null,
+            'city' => $request->filled('city') ? $request->city : null,
+            'phone' => $request->filled('phone') ? $request->phone : null,
+            'salary' => $request->filled('salary') ? $request->salary : null,
+            'admission_date' => $request->filled('admission_date') ? $request->admission_date : null,
+            'user_id' => $user->id,
+        ]);
 
         return redirect()->route('colaborators.rh-users')->with('success', 'New collaborator created successfully.');
     }
