@@ -30,18 +30,17 @@
                             @error('email')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
-                        </div>
-
+                        </div>              
                         <div class="mb-3">
                             <div class="d-flex">
                                 <div class="flex-grow-1 pe-3">
-                                    <label for="select_department">Department</label>
-                                    <select class="form-select" id="select_department" name="select_department">
+                                    <label for="department_id">Department</label>
+                                    <select class="form-select" id="department_id" name="department_id">
                                         @foreach ($departments as $department)
                                             <option value="{{ $department->id }}">{{ $department->name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('select_department')
+                                    @error('department_id')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

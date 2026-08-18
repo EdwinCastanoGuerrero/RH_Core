@@ -9,6 +9,16 @@ class UserDetail extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'address',
+        'zip_code',
+        'city',
+        'phone',
+        'salary',
+        'admission_date',
+    ];
+
     public function user()
     {   
         //os detalhes do usuario pertence ao usuario.
