@@ -13,7 +13,7 @@
             <div class="container-fluid">
                 <div class="row gap-3">
 
-                    {{-- user --}}
+                    
                     <div class="col border border-black p-4">
 
                         <div class="mb-3">
