@@ -28,7 +28,6 @@ class AdminSeeder extends Seeder
         );
 
         //admin department
-
         DB::table('user_details')->updateOrInsert(
             ['user_id' => 1],
             [
@@ -46,6 +45,15 @@ class AdminSeeder extends Seeder
         // admin department
         DB::table('departments')->updateOrInsert(
             ['name' => 'Administração'],
+            [
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
+
+        //rh deparment
+        DB::table('departments')->updateOrInsert(
+            ['name' => 'Recursos Humanos'],
             [
                 'created_at' => now(),
                 'updated_at' => now(),

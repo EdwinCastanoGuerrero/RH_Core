@@ -45,7 +45,7 @@ class DepartmentController extends Controller
     {
         Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
 
-        if(intval($id) === 1) {
+        if(Department::findOrFail($id)->isEditableOrDeletable() === false) {
             abort(403, 'You are not authorized to edit this department');
         }
 
@@ -74,7 +74,7 @@ class DepartmentController extends Controller
     {
         Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
 
-        if($department->id === 1) {
+        if($department->isEditableOrDeletable() === false) {
             abort(403, 'You are not authorized to delete this department');
         }
 
@@ -88,7 +88,7 @@ class DepartmentController extends Controller
     {
         Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
 
-        if($department->id === 1) {
+        if($department->isEditableOrDeletable() === false) {
             abort(403, 'You are not authorized to delete this department');
         }
 
@@ -114,4 +114,5 @@ class DepartmentController extends Controller
 
         return redirect()->route('departments');
     }
+
 }
