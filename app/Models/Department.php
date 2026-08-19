@@ -19,4 +19,9 @@ class Department extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function isEditableOrDeletable(): bool
+    {
+        return !in_array($this->id, [1, 2]);
+    }
+
 }
