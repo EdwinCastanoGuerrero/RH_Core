@@ -38,5 +38,8 @@ Route::middleware('auth')->group(function(){
     //Rota para criar um novo colaborador
     Route::post('/rh-users/create-colaborator', [App\Http\Controllers\RHUserController::class, 'createColaborator'])->name('colaborators.create-colaborator');
 
-
+    //Rota para editar um colaborador RH
+    Route::get('/rh-users/{id}/edit', [App\Http\Controllers\RHUserController::class, 'editColaborator'])->name('colaborators.edit-colaborator');
+    Route::post('/rh-users/update', [App\Http\Controllers\RHUserController::class, 'updateColaborator'])->name('colaborators.update-colaborator');
 });
+    
