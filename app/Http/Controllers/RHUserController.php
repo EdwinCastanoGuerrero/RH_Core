@@ -120,4 +120,22 @@ class RHUserController extends Controller
 
         return redirect()->route('colaborators.rh-users')->with('success', 'Collaborator updated successfully.');
     }
+
+    public function deleteColaboratorConfirm($id)
+    {
+        Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
+
+        $user = User::where('id', $id)->where('role', 'rh')->firstOrFail();
+        return view('colaborators.delete-rh-user', compact('user'));
+    }
+
+    public function deleteColaborator($id)
+    {
+        Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
+
+        $user = User::where('id', $id)->where('role', 'rh')->firstOrFail();
+        $user->delete();
+
+        return redirect()->route('colaborators.rh-users')->with('success', 'Collaborator deleted successfully.');
+    }
 }

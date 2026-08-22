@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="mt-3">
-                    <a href="#" class="btn btn-outline-danger me-3">Cancel</a>
+                    <a href="{{ route('colaborators.rh-users') }}" class="btn btn-outline-danger me-3">Cancel</a>
                     <button type="submit" class="btn btn-primary">Update colaborator</button>
                 </div>
 

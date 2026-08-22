@@ -41,5 +41,9 @@ Route::middleware('auth')->group(function(){
     //Rota para editar um colaborador RH
     Route::get('/rh-users/{id}/edit', [App\Http\Controllers\RHUserController::class, 'editColaborator'])->name('colaborators.edit-colaborator');
     Route::post('/rh-users/update', [App\Http\Controllers\RHUserController::class, 'updateColaborator'])->name('colaborators.update-colaborator');
+
+    //Rota para deletar um colaborador RH
+    Route::get('/rh-users/{id}/delete-confirm', [App\Http\Controllers\RHUserController::class, 'deleteColaboratorConfirm'])->name('colaborators.delete-colaborator-confirm');
+    Route::get('/rh-users/{id}/delete', [App\Http\Controllers\RHUserController::class, 'deleteColaborator'])->name('colaborators.delete-colaborator');
 });
     
