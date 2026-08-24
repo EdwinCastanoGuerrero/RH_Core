@@ -6,7 +6,7 @@
 
         <hr>
 
-        <form action="{{ route('colaborators.update-colaborator', $user->id) }}" method="post">
+        <form action="{{ route('colaborators.rh.update-colaborator', $user->id) }}" method="post">
 
             @csrf
 

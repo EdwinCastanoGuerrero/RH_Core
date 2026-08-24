@@ -11,7 +11,7 @@
         <div class="text-center">
             <h3 class="my-5">{{ $user->name }}</h3>
             <a href="{{ route('colaborators.rh-users') }}" class="btn btn-secondary px-5 m-2">No</a>
-            <a href="{{ route('colaborators.delete-colaborator', $user->id) }}" class="btn btn-danger px-5 m-2">Yes</a>
+            <a href="{{ route('colaborators.rh.delete-colaborator', $user->id) }}" class="btn btn-danger px-5 m-2">Yes</a>
         </div>
         
     </div>
