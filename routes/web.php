@@ -45,5 +45,11 @@ Route::middleware('auth')->group(function(){
     //Rota para deletar um colaborador RH
     Route::get('/rh-users/{id}/delete-confirm', [App\Http\Controllers\RHUserController::class, 'deleteColaboratorConfirm'])->name('colaborators.rh.delete-colaborator-confirm');
     Route::get('/rh-users/{id}/delete', [App\Http\Controllers\RHUserController::class, 'deleteColaborator'])->name('colaborators.rh.delete-colaborator');
+
+
+    //Rota para confirmar a conta do usuário
+    Route::get('/confirm-account/{token}', [App\Http\Controllers\ConfirmAccountController::class, 'confirmAccount'])->name('confirm-account');
 });
+
+
     

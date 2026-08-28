@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class ConfirmAccountController extends Controller
 {   
-    public function confirmAccount(Request $request, $url)
+    public function confirmAccount($token)
     {
-        echo "URL: " . $url . "<br>";
+        echo "Token: " . $token . "<br>";
         // $user = auth()->user();
 
         // if ($user->email_verified_at) {
