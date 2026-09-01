@@ -14,7 +14,7 @@ class ConfirmAccountEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public string $url;
+    public $url;
 
     /**
      * Create a new message instance.
