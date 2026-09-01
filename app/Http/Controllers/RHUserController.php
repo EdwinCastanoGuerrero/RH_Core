@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ConfirmAccountEmail;
 use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class RHUserController extends Controller
 {
@@ -48,14 +51,20 @@ class RHUserController extends Controller
         }
 
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make(bin2hex(random_bytes(16))),
-            'role' => 'rh',
-            'department_id' => $request->department_id,
-            'permissions' => '["rh"]',
-        ]);
+        //criação do token
+        $token = Str::random(60);
+
+
+        //criando usuario
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make('RH@2026');
+        $user->role = 'rh';
+        $user->department_id = $request->department_id;
+        $user->permissions = json_encode(['rh']);
+        $user->confirmation_token = $token;
+        $user->save();
 
         $user->userDetails()->create([
             'address' => $request->filled('address') ? $request->address : null,
@@ -66,6 +75,10 @@ class RHUserController extends Controller
             'admission_date' => $request->filled('admission_date') ? $request->admission_date : null,
             'user_id' => $user->id,
         ]);
+
+        //envio de email de confirmação de conta
+        
+        Mail::to($user->email)->send(new ConfirmAccountEmail(route('confirm-account', $token)));
 
         return redirect()->route('colaborators.rh-users')->with('success', 'New collaborator created successfully.');
     }

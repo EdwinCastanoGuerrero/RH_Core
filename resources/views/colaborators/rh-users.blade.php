@@ -11,12 +11,12 @@
 
             <div class="text-center my-5">
                 <p>No human resources collaborators found.</p>
-                <a href="{{ route('colaborators.new-colaborator') }}" class="btn btn-primary">Create a new
+                <a href="{{ route('colaborators.rh.new-colaborator') }}" class="btn btn-primary">Create a new
                     collaborator</a>
             </div>
         @else
             <div class="mb-3">
-                <a href="{{ route('colaborators.new-colaborator') }}" class="btn btn-primary">Create a new colaborator</a>
+                <a href="{{ route('colaborators.rh.new-colaborator') }}" class="btn btn-primary">Create a new colaborator</a>
             </div>
 
             <table class="table" id="table">
@@ -49,9 +49,9 @@
 
                             <td class="align-middle">
                                 <div class="d-flex gap-3 justify-content-end">
-                                    <a href="{{ route('colaborators.edit-colaborator', $user->id) }}" class="btn btn-sm btn-outline-dark"><i
+                                    <a href="{{ route('colaborators.rh.edit-colaborator', $user->id) }}" class="btn btn-sm btn-outline-dark"><i
                                             class="fa-regular fa-pen-to-square me-2"></i>Edit</a>
-                                    <a href="{{ route('colaborators.delete-colaborator-confirm', $user->id) }}" class="btn btn-sm btn-outline-dark"><i
+                                    <a href="{{ route('colaborators.rh.delete-colaborator-confirm', $user->id) }}" class="btn btn-sm btn-outline-dark"><i
                                             class="fa-regular fa-trash-can me-2"></i>Delete</a>
                                 </div>
                             </td>
