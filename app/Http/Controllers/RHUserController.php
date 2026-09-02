@@ -7,7 +7,6 @@ use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
@@ -55,11 +54,10 @@ class RHUserController extends Controller
         $token = Str::random(60);
 
 
-        //criando usuario
+        //criando usuario (sem senha, ela será definida pelo próprio colaborador via e-mail de confirmação)
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make('RH@2026');
         $user->role = 'rh';
         $user->department_id = $request->department_id;
         $user->permissions = json_encode(['rh']);
