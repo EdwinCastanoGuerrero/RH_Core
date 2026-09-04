@@ -17,7 +17,7 @@ class ConfirmAccountController extends Controller
             return redirect()->route('login')->with('error', 'Link de confirmação inválido ou já utilizado.');
         }
 
-        return view('auth.confirm-account', compact('token'));
+        return view('auth.confirm-account', ['token' => $token]);
     }
 
     public function storePassword(Request $request, $token)
@@ -29,7 +29,7 @@ class ConfirmAccountController extends Controller
         }
 
         $request->validate([
-            'password' => ['required', 'string', Password::default(), 'confirmed'],
+            'password' => ['required|confirmed|min:8|max:16|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'],
         ]);
 
         $user->password = Hash::make($request->password);
@@ -39,4 +39,5 @@ class ConfirmAccountController extends Controller
 
         return redirect()->route('login')->with('status', 'Conta confirmada com sucesso! Já pode iniciar sessão.');
     }
+
 }

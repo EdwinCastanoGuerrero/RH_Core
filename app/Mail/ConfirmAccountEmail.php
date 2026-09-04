@@ -9,6 +9,7 @@ use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Symfony\Component\Mime\Part\TextPart;
 
 class ConfirmAccountEmail extends Mailable
 {
@@ -22,6 +23,14 @@ class ConfirmAccountEmail extends Mailable
     public function __construct($url)
     {
         $this->url = $url;
+
+        $this->withSymfonyMessage(function ($message) {
+            $body = $message->getBody();
+
+            if ($body instanceof TextPart && $body->getMediaSubtype() === 'html') {
+                $message->setBody(new TextPart($body->getBody(), 'utf-8', 'html', '8bit'));
+            }
+        });
     }
 
     /**

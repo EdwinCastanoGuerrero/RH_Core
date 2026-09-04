@@ -76,7 +76,7 @@ class RHUserController extends Controller
 
         //envio de email de confirmação de conta
         
-        Mail::to($user->email)->send(new ConfirmAccountEmail(route('confirm-account', $token)));
+        Mail::to($user->email)->send(new ConfirmAccountEmail(route('user.confirm-account', $token)));
 
         return redirect()->route('colaborators.rh-users')->with('success', 'New collaborator created successfully.');
     }

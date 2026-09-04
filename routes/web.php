@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConfirmAccountController;
 use App\Models\User;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DepartmentController;
@@ -48,8 +49,7 @@ Route::middleware('auth')->group(function(){
 });
 
 //Rota para confirmar a conta do usuário e definir a senha (acessível sem estar autenticado)
-Route::get('/confirm-account/{token}', [App\Http\Controllers\ConfirmAccountController::class, 'confirmAccount'])->name('confirm-account');
-Route::post('/confirm-account/{token}', [App\Http\Controllers\ConfirmAccountController::class, 'storePassword'])->name('confirm-account.store-password');
-
+Route::get('/confirm-account/{token}', [ConfirmAccountController::class, 'confirmAccount'])->name('user.confirm-account');
+Route::post('/confirm-account/{token}/set-password', [ConfirmAccountController::class, 'storePassword'])->name('user.set-password');
 
     
