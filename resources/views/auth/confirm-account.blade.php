@@ -13,7 +13,7 @@
 
                     <p>Bem-vindo! Para concluir seu cadastro, defina a sua senha de acesso.</p>
 
-                    <form action="{{ route('confirm-account.store-password', $token) }}" method="post">
+                    <form action="{{ route('user.set-password', $token) }}" method="post">
 
                         @csrf
 
