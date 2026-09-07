@@ -29,7 +29,7 @@ class ConfirmAccountController extends Controller
         }
 
         $request->validate([
-            'password' => ['required|confirmed|min:8|max:16|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'],
+            'password' => ['required', 'confirmed', 'min:5', 'max:16'],
         ]);
 
         $user->password = Hash::make($request->password);
@@ -39,5 +39,4 @@ class ConfirmAccountController extends Controller
 
         return redirect()->route('login')->with('status', 'Conta confirmada com sucesso! Já pode iniciar sessão.');
     }
-
 }
