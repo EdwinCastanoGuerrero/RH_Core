@@ -36,8 +36,8 @@
                                     @if(!$department->isEditableOrDeletable())
                                         <i class="fa-solid fa-lock"></i>
                                     @else
-                                        <a href="{{ route('department.edit-department', ['department' => $department->id]) }}" class="btn btn-sm btn-outline-dark"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</a>
-                                        <a href="{{ route('department.delete-department', ['department' => $department->id]) }}" class="btn btn-sm btn-outline-dark"><i class="fa-regular fa-trash-can me-2"></i>Delete</a>
+                                        <a href="{{ route('department.edit-department', ['department' => $department->id]) }}" class="btn btn-sm btn-outline-primary"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</a>
+                                        <a href="{{ route('department.delete-department', ['department' => $department->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa-regular fa-trash-can me-2"></i>Delete</a>
                                     @endif
                                 </div>
                             </td>
