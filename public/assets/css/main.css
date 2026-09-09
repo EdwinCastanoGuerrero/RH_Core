@@ -30,3 +30,35 @@ body {
     color: #fff;
     border-radius: 5px;
 }
+
+/* btn-secondary was defined as white-on-white in bootstrap.min.css, making it invisible.
+   Recolor it to a slate tone that pairs with the brand blue/green (logo) palette. */
+.btn-secondary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #607d8b;
+    --bs-btn-border-color: #607d8b;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #56707d;
+    --bs-btn-hover-border-color: #516974;
+    --bs-btn-focus-shadow-rgb: 96, 125, 139;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #516974;
+    --bs-btn-active-border-color: #4c626c;
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #607d8b;
+    --bs-btn-disabled-border-color: #607d8b;
+}
+
+.btn-outline-secondary {
+    --bs-btn-color: #607d8b;
+    --bs-btn-border-color: #607d8b;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #607d8b;
+    --bs-btn-hover-border-color: #607d8b;
+    --bs-btn-focus-shadow-rgb: 96, 125, 139;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #607d8b;
+    --bs-btn-active-border-color: #607d8b;
+    --bs-btn-disabled-color: #607d8b;
+    --bs-btn-disabled-border-color: #607d8b;
+}
