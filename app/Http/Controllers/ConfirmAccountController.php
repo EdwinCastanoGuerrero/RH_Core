@@ -37,6 +37,6 @@ class ConfirmAccountController extends Controller
         $user->email_verified_at = now();
         $user->save();
 
-        return redirect()->route('login')->with('status', 'Conta confirmada com sucesso! Já pode iniciar sessão.');
+        return view('auth.welcome', ['user' => $user]);
     }
 }
