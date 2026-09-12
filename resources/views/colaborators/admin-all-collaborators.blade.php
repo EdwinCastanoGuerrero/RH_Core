@@ -42,8 +42,8 @@
 
                             <td>{{ $colaborator->department->name }}</td>
                             <td>{{ $colaborator->role }}</td>
-                            <td>{{ $colaborator->detail->admission_date }}</td>
-                            <td>{{ $colaborator->detail->salary }} $</td>
+                            <td>{{ $colaborator->userDetails->admission_date }}</td>
+                            <td>{{ $colaborator->userDetails->salary }} $</td>
                             
                             <td>
 

@@ -11,9 +11,9 @@ class ColaboratorsController extends Controller
     Public function index()
     {   
         Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
-        $colaborators = User::with('details')
-            ->where('role', '<>', 'admin')
-            ->get();
+        $colaborators = User::with('userDetails', 'department')
+                        ->where('role', '<>', 'admin')
+                        ->get();
         return view('colaborators.admin-all-collaborators', compact('colaborators'));
     }
 }
