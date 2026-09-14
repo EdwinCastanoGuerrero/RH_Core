@@ -16,7 +16,7 @@ class RHUserController extends Controller
     {
         Auth::user()->can('admin') ?: abort(403, 'You are not authorized to access this page');
         // $users = User::where('role', 'rh')->get();
-        $users = User::where('role', 'rh')->with('userDetails')->get();
+        $users = User::where('role', 'rh')->with('userDetails', 'department')->get();
         return view('colaborators.rh-users', compact('users'));
     }
 
