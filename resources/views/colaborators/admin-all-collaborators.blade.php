@@ -42,13 +42,13 @@
 
                             <td>{{ $colaborator->department->name }}</td>
                             <td>{{ $colaborator->role }}</td>
-                            <td>{{ $colaborator->detail->admission_date }}</td>
-                            <td>{{ $colaborator->detail->salary }} $</td>
+                            <td>{{ $colaborator->userDetails->admission_date }}</td>
+                            <td>{{ $colaborator->userDetails->salary }} $</td>
                             
                             <td>
 
                                 <div class="d-flex gap-3 justify-content-end">
-                                    <a href="#" class="btn btn-sm btn-outline-dark ms-3"><i class="fas fa-eye me-2"></i>Details</a>
+                                    <a href="{{ route('colaborators.details', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-dark ms-3"><i class="fas fa-eye me-2"></i>Details</a>
                                     <a href="#" class="btn btn-sm btn-outline-dark ms-3"><i class="fa-regular fa-trash-can me-2"></i>Delete</a>
                                 </div>
 

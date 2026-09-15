@@ -6,7 +6,6 @@
 
         <hr>
 
-        <!-- Caso não haja departamentos -->
         @if ($users->count() === 0)
 
             <div class="text-center my-5">
@@ -22,13 +21,14 @@
             <table class="table" id="table">
                 <thead class="table-dark">
                     <tr>
-                        <th>Nome</th>
+                        <th>Name</th>
                         <th>Email</th>
-                        {{-- <th>Permission</th> --}}
+                        <th>Active</th>
+                        <th>Department</th>
                         <th>Role</th>
-                        <th>City</th>
+                        <th>Admission date</th>
                         <th>Salary</th>
-                        <th class="text-end">Actions</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,22 +37,22 @@
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-
-                            {{-- @php
-                                $permissions = json_decode($user->permissions);
-                            @endphp
-
-                            <td>{{ implode(', ', $permissions) }}</td> --}}
+                            <td>
+                                @empty($user->email_verified_at)
+                                    <span class="badge bg-danger">No</span>
+                                @else
+                                    <span class="badge bg-success">Yes</span>
+                                @endif
+                            </td>
+                            <td>{{ $user->department->name ?? 'N/A' }}</td>
                             <td>{{ $user->role }}</td>
-                            <td>{{ $user->userDetails->city ?? 'N/A' }}</td>
-                            <td>{{ $user->userDetails->salary ?? 'N/A' }}</td>
+                            <td>{{ $user->userDetails->admission_date ?? 'N/A' }}</td>
+                            <td>{{ $user->userDetails->salary ?? 'N/A' }} $</td>
 
-                            <td class="align-middle">
+                            <td>
                                 <div class="d-flex gap-3 justify-content-end">
-                                    <a href="{{ route('colaborators.rh.edit-colaborator', $user->id) }}" class="btn btn-sm btn-outline-primary"><i
-                                            class="fa-regular fa-pen-to-square me-2"></i>Edit</a>
-                                    <a href="{{ route('colaborators.rh.delete-colaborator-confirm', $user->id) }}" class="btn btn-sm btn-outline-danger"><i
-                                            class="fa-regular fa-trash-can me-2"></i>Delete</a>
+                                    <a href="{{ route('colaborators.rh.edit-colaborator', $user->id) }}" class="btn btn-sm btn-outline-dark ms-3"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</a>
+                                    <a href="{{ route('colaborators.rh.delete-colaborator-confirm', $user->id) }}" class="btn btn-sm btn-outline-dark ms-3"><i class="fa-regular fa-trash-can me-2"></i>Delete</a>
                                 </div>
                             </td>
                         </tr>
