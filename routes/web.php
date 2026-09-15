@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function(){
 
     //Rota para listar todos os colaboradores RH
     Route::get('/colaborators', [App\Http\Controllers\ColaboratorsController::class, 'index'])->name('colaborators.all-colaborators');
+    Route::get('/colaborators/details/{id}', [App\Http\Controllers\ColaboratorsController::class, 'show'])->name('colaborators.details');
 });
 
 //Rota para confirmar a conta do usuário e definir a senha (acessível sem estar autenticado)
