@@ -30,4 +30,29 @@ class ColaboratorsController extends Controller
                         ->findOrFail($id);
         return view('colaborators.show-details', compact('colaborator'));
     }
+
+    public function delete($id){
+        Auth::user()->can('admin', 'rh') ?: abort(403, 'You are not authorized to access this page');
+
+        if (Auth::user()->id === $id) {
+            return redirect()->route('home');
+        }
+
+        $colaborator = User::findOrFail($id);
+
+        return view('colaborators.delete-collaborator-confirm', compact('colaborator'));
+    }
+
+    public function deleteConfirm($id){
+        Auth::user()->can('admin', 'rh') ?: abort(403, 'You are not authorized to access this page');
+
+        if (Auth::user()->id === $id) {
+            return redirect()->route('home');
+        }
+
+        $colaborator = User::findOrFail($id);
+
+        $colaborator->delete();
+        return redirect()->route('colaborators.all-colaborators');
+    }    
 }
