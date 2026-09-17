@@ -46,7 +46,8 @@ Route::middleware('auth')->group(function(){
     //Rota para deletar um colaborador RH
     Route::get('/rh-users/{id}/delete-confirm', [App\Http\Controllers\RHUserController::class, 'deleteColaboratorConfirm'])->name('colaborators.rh.delete-colaborator-confirm');
     Route::get('/rh-users/{id}/delete', [App\Http\Controllers\RHUserController::class, 'deleteColaborator'])->name('colaborators.rh.delete-colaborator');
-
+    //Rota para restaurar um colaborador RH
+    Route::get('rh-users/restore/{id}', [App\Http\Controllers\RHUserController::class, 'restoreColaborator'])->name('colaborators.rh.restore');
 
     //Rota para listar todos os colaboradores RH
     Route::get('/colaborators', [App\Http\Controllers\ColaboratorsController::class, 'index'])->name('colaborators.all-colaborators');
@@ -55,6 +56,8 @@ Route::middleware('auth')->group(function(){
     //Rota para deletar colaborador
     Route::get('/colaborators/delete/{id}', [App\Http\Controllers\ColaboratorsController::class, 'delete'])->name('colaborators.delete');
     Route::get('/colaborators/delete-confirm/{id}', [App\Http\Controllers\ColaboratorsController::class, 'deleteConfirm'])->name('colaborators.deleteConfirm');
+    //Rota para restaurar um colaborador
+    Route::get('/colaborators/restore/{id}', [App\Http\Controllers\ColaboratorsController::class, 'restore'])->name('colaborators.restore');
 });
 
 //Rota para confirmar a conta do usuário e definir a senha (acessível sem estar autenticado)
