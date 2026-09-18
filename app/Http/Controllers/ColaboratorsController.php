@@ -29,6 +29,12 @@ class ColaboratorsController extends Controller
 
         $colaborator = User::with('userDetails', 'department')
                         ->findOrFail($id);
+
+        //verifica se o colaborador existe
+        if (!$colaborator) {
+            abort(404, 'Not Found');
+        }
+
         return view('colaborators.show-details', compact('colaborator'));
     }
 
