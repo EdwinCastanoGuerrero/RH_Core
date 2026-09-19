@@ -11,7 +11,15 @@ use Illuminate\Support\Facades\Route;
 //Middleware: encaminha para rota de login caso o usuário não esteja autenticado
 Route::middleware('auth')->group(function(){
     Route::redirect('/', '/home');
-    Route::view('/home', 'home')->name('home');
+    Route::get('/home', function () {
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('colaborators.all-colaborators');
+        } elseif (auth()->user()->role === 'rh') {
+            return redirect()->route('rh-management.index');
+        } else {
+            return redirect()->route('user.profile');
+        }
+    })->name('home');
 
     //Rota para o perfil do usuário
     Route::get('/user/profile', [ProfileController::class, 'index'])->name('user.profile');
@@ -48,6 +56,9 @@ Route::middleware('auth')->group(function(){
     Route::get('/rh-users/{id}/delete', [App\Http\Controllers\RHUserController::class, 'deleteColaborator'])->name('colaborators.rh.delete-colaborator');
     //Rota para restaurar um colaborador RH
     Route::get('rh-users/restore/{id}', [App\Http\Controllers\RHUserController::class, 'restoreColaborator'])->name('colaborators.rh.restore');
+
+    //Rota para a página inicial do RH Management
+    Route::get('/rh-management/home', [App\Http\Controllers\RhManagementController::class, 'index'])->name('rh-management.index');
 
     //Rota para listar todos os colaboradores RH
     Route::get('/colaborators', [App\Http\Controllers\ColaboratorsController::class, 'index'])->name('colaborators.all-colaborators');
