@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <button class="btn btn-outline-dark" onclick="window.history.back()"><i class="fas fa-arrow-left me-2"></i>Back</button>
+        <button class="btn btn-outline-secondary" onclick="window.history.back()"><i class="fas fa-arrow-left me-2"></i>Back</button>
 
     </div>
 
