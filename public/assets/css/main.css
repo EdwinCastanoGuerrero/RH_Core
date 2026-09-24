@@ -1,12 +1,12 @@
 :root {
     --platform-bg: #f3f6f4;
     --platform-surface: rgba(255, 255, 255, 0.72);
-    --action-green: #3f8f68;
-    --action-green-hover: #327653;
-    --action-red: #c75c63;
-    --action-red-hover: #ae474e;
-    --action-neutral: #64748b;
-    --action-neutral-hover: #526176;
+    --action-green: #6b8f73;
+    --action-green-hover: #52704f;
+    --action-red: #ad6a55;
+    --action-red-hover: #8a4f3e;
+    --action-neutral: #8a8276;
+    --action-neutral-hover: #6b6558;
 }
 
 body {
@@ -47,13 +47,13 @@ body {
 }
 
 .btn-primary {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: rgba(63, 143, 104, 0.88);
-    --bs-btn-border-color: rgba(63, 143, 104, 0.7);
+    --bs-btn-color: var(--action-green-hover);
+    --bs-btn-bg: rgba(107, 143, 115, 0.14);
+    --bs-btn-border-color: rgba(107, 143, 115, 0.4);
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--action-green-hover);
-    --bs-btn-hover-border-color: var(--action-green-hover);
-    --bs-btn-focus-shadow-rgb: 63, 143, 104;
+    --bs-btn-hover-bg: var(--action-green);
+    --bs-btn-hover-border-color: var(--action-green);
+    --bs-btn-focus-shadow-rgb: 107, 143, 115;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: var(--action-green-hover);
     --bs-btn-active-border-color: var(--action-green-hover);
@@ -61,24 +61,24 @@ body {
 
 .btn-outline-primary {
     --bs-btn-color: var(--action-green);
-    --bs-btn-border-color: rgba(63, 143, 104, 0.55);
+    --bs-btn-border-color: rgba(107, 143, 115, 0.5);
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: var(--action-green);
     --bs-btn-hover-border-color: var(--action-green);
-    --bs-btn-focus-shadow-rgb: 63, 143, 104;
+    --bs-btn-focus-shadow-rgb: 107, 143, 115;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: var(--action-green-hover);
     --bs-btn-active-border-color: var(--action-green-hover);
 }
 
 .btn-danger {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: rgba(199, 92, 99, 0.88);
-    --bs-btn-border-color: rgba(199, 92, 99, 0.7);
+    --bs-btn-color: var(--action-red-hover);
+    --bs-btn-bg: rgba(173, 106, 85, 0.14);
+    --bs-btn-border-color: rgba(173, 106, 85, 0.4);
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--action-red-hover);
-    --bs-btn-hover-border-color: var(--action-red-hover);
-    --bs-btn-focus-shadow-rgb: 199, 92, 99;
+    --bs-btn-hover-bg: var(--action-red);
+    --bs-btn-hover-border-color: var(--action-red);
+    --bs-btn-focus-shadow-rgb: 173, 106, 85;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: var(--action-red-hover);
     --bs-btn-active-border-color: var(--action-red-hover);
@@ -86,11 +86,11 @@ body {
 
 .btn-outline-danger {
     --bs-btn-color: var(--action-red);
-    --bs-btn-border-color: rgba(199, 92, 99, 0.55);
+    --bs-btn-border-color: rgba(173, 106, 85, 0.5);
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: var(--action-red);
     --bs-btn-hover-border-color: var(--action-red);
-    --bs-btn-focus-shadow-rgb: 199, 92, 99;
+    --bs-btn-focus-shadow-rgb: 173, 106, 85;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: var(--action-red-hover);
     --bs-btn-active-border-color: var(--action-red-hover);
@@ -98,42 +98,42 @@ body {
 
 .btn-outline-success {
     --bs-btn-color: var(--action-green);
-    --bs-btn-border-color: rgba(63, 143, 104, 0.55);
+    --bs-btn-border-color: rgba(107, 143, 115, 0.5);
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: var(--action-green);
     --bs-btn-hover-border-color: var(--action-green);
-    --bs-btn-focus-shadow-rgb: 63, 143, 104;
+    --bs-btn-focus-shadow-rgb: 107, 143, 115;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: var(--action-green-hover);
     --bs-btn-active-border-color: var(--action-green-hover);
 }
 
 .btn-secondary {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: rgba(100, 116, 139, 0.82);
-    --bs-btn-border-color: rgba(100, 116, 139, 0.62);
+    --bs-btn-color: var(--action-neutral-hover);
+    --bs-btn-bg: rgba(138, 130, 118, 0.14);
+    --bs-btn-border-color: rgba(138, 130, 118, 0.4);
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: var(--action-neutral-hover);
     --bs-btn-hover-border-color: var(--action-neutral-hover);
-    --bs-btn-focus-shadow-rgb: 96, 125, 139;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: var(--action-neutral-hover);
-    --bs-btn-active-border-color: var(--action-neutral-hover);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: var(--action-neutral);
-    --bs-btn-disabled-border-color: var(--action-neutral);
-}
-
-.btn-outline-secondary {
-    --bs-btn-color: var(--action-neutral);
-    --bs-btn-border-color: rgba(100, 116, 139, 0.55);
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--action-neutral);
-    --bs-btn-hover-border-color: var(--action-neutral);
-    --bs-btn-focus-shadow-rgb: 96, 125, 139;
+    --bs-btn-focus-shadow-rgb: 138, 130, 118;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: var(--action-neutral-hover);
     --bs-btn-active-border-color: var(--action-neutral-hover);
     --bs-btn-disabled-color: var(--action-neutral);
-    --bs-btn-disabled-border-color: var(--action-neutral);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: rgba(138, 130, 118, 0.4);
+}
+
+.btn-outline-secondary {
+    --bs-btn-color: var(--action-neutral);
+    --bs-btn-border-color: rgba(138, 130, 118, 0.5);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--action-neutral);
+    --bs-btn-hover-border-color: var(--action-neutral);
+    --bs-btn-focus-shadow-rgb: 138, 130, 118;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--action-neutral-hover);
+    --bs-btn-active-border-color: var(--action-neutral-hover);
+    --bs-btn-disabled-color: var(--action-neutral);
+    --bs-btn-disabled-border-color: rgba(138, 130, 118, 0.5);
 }
