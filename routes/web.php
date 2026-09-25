@@ -59,6 +59,7 @@ Route::middleware('auth')->group(function(){
 
     //Rota para a página inicial do RH Management
     Route::get('/rh-management/home', [App\Http\Controllers\RhManagementController::class, 'index'])->name('rh-management.index');
+    Route::get('/rh-management/newCollaborator', [App\Http\Controllers\RhManagementController::class, 'newCollaborator'])->name('rh-management.newCollaborator');
 
     //Rota para listar todos os colaboradores RH
     Route::get('/colaborators', [App\Http\Controllers\ColaboratorsController::class, 'index'])->name('colaborators.all-colaborators');
