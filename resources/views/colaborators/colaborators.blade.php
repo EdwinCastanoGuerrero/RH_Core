@@ -6,15 +6,16 @@
 
         <hr>
 
-        @if($colaborators->count() === 0)
-            
+        @if ($colaborators->count() === 0)
+
             <div class="text-center my-5">
                 <p>No colaborators found.</p>
                 <a href="{{ route('rh-management.newCollaborator') }}" class="btn btn-primary">Create Collaborator</a>
             </div>
-
         @else
-                
+            <div class="mb-3 text-start">
+                <a href="{{ route('rh-management.newCollaborator') }}" class="btn btn-primary">Create Collaborator</a>
+            </div>
             <table class="table" id="table">
                 <thead class="table-dark">
                     <th>Name</th>
@@ -29,7 +30,6 @@
                 <tbody>
 
                     @foreach ($colaborators as $colaborator)
-                        
                         <tr>
                             <td>{{ $colaborator->name }}</td>
                             <td>{{ $colaborator->email }}</td>
@@ -38,33 +38,37 @@
                                     <span class="badge bg-danger">No</span>
                                 @else
                                     <span class="badge bg-success">Yes</span>
-                                @endif
-                            </td>
+                        @endif
+                        </td>
 
-                            <td>{{ $colaborator->department->name }}</td>
-                            <td>{{ $colaborator->role }}</td>
-                            <td>{{ $colaborator->detail->admission_date }}</td>
-                            <td>{{ $colaborator->detail->salary }} $</td>
-                            
-                            <td>
+                        <td>{{ $colaborator->department->name }}</td>
+                        <td>{{ $colaborator->role }}</td>
+                        <td>{{ $colaborator->userDetails->admission_date ?? 'N/A' }}</td>
+                        <td>{{ $colaborator->userDetails->salary ?? 'N/A' }} $</td>
 
-                                <div class="d-flex gap-3 justify-content-end">
-                                    @empty($colaborator->deleted_at)
-                                        <a href="{{ route('colaborators.details', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-secondary ms-3"><i class="fas fa-eye me-2"></i>Details</a>
-                                        <a href="{{ route('colaborators.delete', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-danger ms-3"><i class="fa-regular fa-trash-can me-2"></i>Delete</a>
-                                    @else
-                                        <a href="{{ route('colaborators.restore', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-success ms-3"><i class="fa-solid fa-trash-arrow-up me-2"></i>Restore</a>
-                                    @endif
-                                </div>
+                        <td>
 
-                            </td>
-                        </tr>
+                            <div class="d-flex gap-3 justify-content-end">
+                                @empty($colaborator->deleted_at)
+                                    <a href="{{ route('colaborators.details', ['id' => $colaborator->id]) }}"
+                                        class="btn btn-sm btn-outline-secondary ms-3"><i class="fas fa-eye me-2"></i>Details</a>
+                                    <a href="{{ route('colaborators.delete', ['id' => $colaborator->id]) }}"
+                                        class="btn btn-sm btn-outline-danger ms-3"><i
+                                            class="fa-regular fa-trash-can me-2"></i>Delete</a>
+                                @else
+                                    <a href="{{ route('colaborators.restore', ['id' => $colaborator->id]) }}"
+                                        class="btn btn-sm btn-outline-success ms-3"><i
+                                            class="fa-solid fa-trash-arrow-up me-2"></i>Restore</a>
+                @endif
+            </div>
 
-                    @endforeach
+            </td>
+            </tr>
+            @endforeach
 
-                </tbody>
+            </tbody>
             </table>
 
-        @endif
+            @endif
 
-</x-layout-app>
+        </x-layout-app>
