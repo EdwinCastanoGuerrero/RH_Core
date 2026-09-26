@@ -7,13 +7,14 @@ use App\Http\Controllers\DepartmentController;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 //Middleware: encaminha para rota de login caso o usuário não esteja autenticado
 Route::middleware('auth')->group(function(){
     Route::redirect('/', '/home');
     Route::get('/home', function () {
         if (auth()->user()->role === 'admin') {
-            return redirect()->route('colaborators.all-colaborators');
+            return redirect()->route('admin.home');
         } elseif (auth()->user()->role === 'rh') {
             return redirect()->route('rh-management.index');
         } else {
@@ -57,7 +58,10 @@ Route::middleware('auth')->group(function(){
     //Rota para restaurar um colaborador RH
     Route::get('rh-users/restore/{id}', [App\Http\Controllers\RHUserController::class, 'restoreColaborator'])->name('colaborators.rh.restore');
 
-    //Rota para a página inicial do RH Management
+   //rota para a página de administração
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
+
+     //Rota para a página inicial do RH Management
     Route::get('/rh-management/home', [App\Http\Controllers\RhManagementController::class, 'index'])->name('rh-management.index');
     Route::get('/rh-management/newCollaborator', [App\Http\Controllers\RhManagementController::class, 'newCollaborator'])->name('rh-management.newCollaborator');
 
