@@ -24,6 +24,13 @@ class User extends Authenticatable
         'permissions',
     ];
 
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'confirmation_token',
+        'confirmation_token_expires_at',
+    ];
+
     public function userDetails()
     {   
         //cada usuario pode ter um user_details.

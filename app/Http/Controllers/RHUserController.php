@@ -65,6 +65,7 @@ class RHUserController extends Controller
         $user->department_id = $request->department_id;
         $user->permissions = json_encode(['rh']);
         $user->confirmation_token = $token;
+        $user->confirmation_token_expires_at = now()->addDay();
         $user->save();
 
         $user->userDetails()->create([

@@ -11,7 +11,9 @@ class ConfirmAccountController extends Controller
 {
     public function confirmAccount($token)
     {
-        $user = User::where('confirmation_token', $token)->first();
+        $user = User::where('confirmation_token', $token)
+            ->where('confirmation_token_expires_at', '>', now())
+            ->first();
 
         if (!$user) {
             return redirect()->route('login')->with('error', 'Link de confirmação inválido ou já utilizado.');
@@ -22,18 +24,21 @@ class ConfirmAccountController extends Controller
 
     public function storePassword(Request $request, $token)
     {
-        $user = User::where('confirmation_token', $token)->first();
+        $user = User::where('confirmation_token', $token)
+            ->where('confirmation_token_expires_at', '>', now())
+            ->first();
 
         if (!$user) {
             return redirect()->route('login')->with('error', 'Link de confirmação inválido ou já utilizado.');
         }
 
         $request->validate([
-            'password' => ['required', 'confirmed', 'min:5', 'max:16'],
+            'password' => ['required', 'confirmed', Password::defaults()],
         ]);
 
         $user->password = Hash::make($request->password);
         $user->confirmation_token = null;
+        $user->confirmation_token_expires_at = null;
         $user->email_verified_at = now();
         $user->save();
 

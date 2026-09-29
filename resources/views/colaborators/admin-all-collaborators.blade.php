@@ -51,7 +51,11 @@
                                         <a href="{{ route('colaborators.details', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-secondary ms-3"><i class="fas fa-eye me-2"></i>Details</a>
                                         <a href="{{ route('colaborators.delete', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-danger ms-3"><i class="fa-regular fa-trash-can me-2"></i>Delete</a>
                                     @else
-                                        <a href="{{ route('colaborators.restore', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-success ms-3"><i class="fa-solid fa-trash-arrow-up me-2"></i>Restore</a>
+                                        <form action="{{ route('colaborators.restore', ['id' => $colaborator->id]) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" class="btn btn-sm btn-outline-success ms-3"><i class="fa-solid fa-trash-arrow-up me-2"></i>Restore</button>
+                                        </form>
                                     @endif
                                 </div>
 
