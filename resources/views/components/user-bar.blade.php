@@ -12,8 +12,8 @@
 
     <!-- user -->
     <div class="d-flex align-items-center">
-        <i class="fas fa-user-circle me-3"></i>
-        <a href="#" class="text-primary me-3">
+        <a href="#" class="user-identity d-flex align-items-center me-3">
+            <i class="fas fa-user-circle me-2" aria-hidden="true"></i>
             {{ auth()->user()->name }}
         </a>
 
