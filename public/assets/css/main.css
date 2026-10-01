@@ -1,6 +1,6 @@
 :root {
-    --platform-bg: #f3f6f4;
-    --platform-surface: rgba(255, 255, 255, 0.72);
+    --platform-bg: #eaf3f1;
+    --platform-surface: #ffffff;
     --action-green: #6b8f73;
     --action-green-hover: #52704f;
     --action-red: #ad6a55;
@@ -25,6 +25,15 @@ body {
     border-radius: 6px;
     padding: 10px;
     box-shadow: 0 2px 8px rgba(54, 72, 64, 0.12);
+}
+
+.user-identity {
+    color: var(--action-green-hover);
+    text-decoration: none;
+}
+
+.user-identity:hover {
+    color: var(--action-green);
 }
 
 .sidebar {
