@@ -44,8 +44,6 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/rh-users', [App\Http\Controllers\RHUserController::class, 'index'])->name('colaborators.rh-users');
     Route::get('/rh-users/new-colaborator', [App\Http\Controllers\RHUserController::class, 'newColaborator'])->name('colaborators.rh.new-colaborator');
-
-    //Rota para criar um novo colaborador RH
     Route::post('/rh-users/create-colaborator', [App\Http\Controllers\RHUserController::class, 'createColaborator'])->name('colaborators.rh.create-colaborator');
 
     //Rota para editar um colaborador RH
@@ -65,6 +63,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/rh-management/home', [App\Http\Controllers\RhManagementController::class, 'index'])->name('rh-management.index');
     Route::get('/rh-management/newCollaborator', [App\Http\Controllers\RhManagementController::class, 'newCollaborator'])->name('rh-management.newCollaborator');
     Route::post('/rh-management/createCollaborator', [App\Http\Controllers\RhManagementController::class, 'createCollaborator'])->name('rh-management.createCollaborator');
+    Route::get('/rh-management/editCollaborator/{id}', [App\Http\Controllers\RhManagementController::class, 'editCollaborator'])->name('rh-management.editCollaborator');
 
     //Rota para listar todos os colaboradores RH
     Route::get('/colaborators', [App\Http\Controllers\ColaboratorsController::class, 'index'])->name('colaborators.all-colaborators');
