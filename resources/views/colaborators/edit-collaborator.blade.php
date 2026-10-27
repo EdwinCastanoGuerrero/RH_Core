@@ -6,7 +6,7 @@
 
         <hr>
 
-        <form action="#" method="post">
+        <form action="{{ route('rh-management.updateCollaborator') }}" method="post">
 
             @csrf
 
@@ -50,14 +50,14 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="department" class="form-label">Department</label>
-                                <select class="form-select" id="select_department" name="select_department">
+                                <select class="form-select" id="department_id" name="department_id">
                                     @foreach($departments as $department)
-                                        <option value="{{ $department->id }}" {{ old('select_department', $collaborator->department_id) == $department->id ? 'selected' : '' }}>
+                                        <option value="{{ $department->id }}" {{ old('department_id', $collaborator->department_id) == $department->id ? 'selected' : '' }}>
                                             {{ $department->name }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('select_department')
+                                @error('department_id')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -67,8 +67,8 @@
                 </div>
 
                 <div class="mt-3">
-                    <a href="#" class="btn btn-outline-danger me-3">Cancel</a>
-                    <button type="submit" class="btn btn-primary">Update colaborator</button>
+                    <a href="{{ route('rh-management.index') }}" class="btn btn-outline-danger me-3">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Update collaborator</button>
                 </div>
 
             </div>

@@ -64,6 +64,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/rh-management/newCollaborator', [App\Http\Controllers\RhManagementController::class, 'newCollaborator'])->name('rh-management.newCollaborator');
     Route::post('/rh-management/createCollaborator', [App\Http\Controllers\RhManagementController::class, 'createCollaborator'])->name('rh-management.createCollaborator');
     Route::get('/rh-management/editCollaborator/{id}', [App\Http\Controllers\RhManagementController::class, 'editCollaborator'])->name('rh-management.editCollaborator');
+    Route::post('/rh-management/updateCollaborator', [App\Http\Controllers\RhManagementController::class, 'updateCollaborator'])->name('rh-management.updateCollaborator');
 
     //Rota para listar todos os colaboradores RH
     Route::get('/colaborators', [App\Http\Controllers\ColaboratorsController::class, 'index'])->name('colaborators.all-colaborators');
