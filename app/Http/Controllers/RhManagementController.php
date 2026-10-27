@@ -100,4 +100,33 @@ class RhManagementController extends Controller
 
         return view('colaborators.edit-collaborator', compact('collaborator', 'departments'));
     }
+
+    public function updateCollaborator(Request $request){
+        Auth::user()->can('rh') ?: abort(403, 'You are not authorized to access this page');
+
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'department_id' => 'required|exists:departments,id',
+            'address' => 'nullable|string|max:255',
+            'zip_code' => 'nullable|string|max:20',
+            'city' => 'nullable|string|max:100',
+            'phone' => 'nullable|string|max:20',
+            'salary' => 'nullable|numeric|min:0',
+            'admission_date' => 'nullable|date_format:Y-m-d',
+        ]);
+
+        if($request->department_id <= 2) {
+            return redirect()->route('home')->with('error', 'You can only update collaborators for the Human Resources department.');
+        }
+
+        $user = User::findOrFail($request->user_id);
+        $user->userDetails->salary = $request->salary;
+        $user->userDetails->admission_date = $request->admission_date;
+        $user->department_id = $request->department_id;
+        $user->save();
+
+        $user->userDetails()->save($user->userDetails);
+
+        return redirect()->route('rh-management.index')->with('success', 'Collaborator updated successfully.');
+    }
 }
