@@ -11,13 +11,13 @@
 
                 <div class="col">
 
-                    <p>Name: <strong>{{ $colaborator->name }}</strong></p>
-                    <p>Email: <strong>{{ $colaborator->email }}</strong></p>
-                    <p>Role: <strong>{{ $colaborator->role }}</strong></p>
+                    <p>Name: <strong>{{ $user->name }}</strong></p>
+                    <p>Email: <strong>{{ $user->email }}</strong></p>
+                    <p>Role: <strong>{{ $user->role }}</strong></p>
                     <p>Permissions: </p>
 
                     @php
-                        $permissions = json_decode($colaborator->permissions);
+                        $permissions = json_decode($user->permissions);
                     @endphp
                     <ul>
                         @foreach ($permissions as $permission)
@@ -25,10 +25,10 @@
                         @endforeach
                     </ul>
 
-                    <p>Department: <strong>{{ $colaborator->department->name }}</strong></p>
+                    <p>Department: <strong>{{ $user->department->name }}</strong></p>
                     <p>Active:
                         
-                        @empty($colaborator->email_verified_at)
+                        @empty($user->email_verified_at)
                             <span class="badge bg-danger">No</span>
                         @else
                             <span class="badge bg-success">Yes</span>
@@ -37,12 +37,12 @@
                 </div>
 
                 <div class="col">
-                    <p>Address: <strong>{{ $colaborator->userDetails->address }}</strong></p>
-                    <p>Zip code: <strong>{{ $colaborator->userDetails->zip_code }}</strong></p>
-                    <p>City: <strong>{{ $colaborator->userDetails->city }}</strong></p>
-                    <p>Phone: <strong>{{ $colaborator->userDetails->phone }}</strong></p>
-                    <p>Admission date: <strong>{{ $colaborator->userDetails->admission_date }}</strong></p>
-                    <p>Salary: <strong>{{ $colaborator->userDetails->salary }} $</strong></p>
+                    <p>Address: <strong>{{ $user->userDetails->address }}</strong></p>
+                    <p>Zip code: <strong>{{ $user->userDetails->zip_code }}</strong></p>
+                    <p>City: <strong>{{ $user->userDetails->city }}</strong></p>
+                    <p>Phone: <strong>{{ $user->userDetails->phone }}</strong></p>
+                    <p>Admission date: <strong>{{ $user->userDetails->admission_date }}</strong></p>
+                    <p>Salary: <strong>{{ $user->userDetails->salary }} $</strong></p>
                 </div>
             </div>
         </div>
