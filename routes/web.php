@@ -70,6 +70,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/rh-management/delete-collaborator/{id}', [App\Http\Controllers\RhManagementController::class, 'deleteCollaborator'])->name('rh-management.delete-collaborator');
     Route::delete('/rh-management/destroy-collaborator/{id}', [App\Http\Controllers\RhManagementController::class, 'destroyCollaborator'])->name('rh-management.destroy-collaborator');
 
+    Route::get('/rh-management/restore-collaborator/{id}', [App\Http\Controllers\RhManagementController::class, 'restoreCollaborator'])->name('rh-management.restore-collaborator');
+
     //Rota para listar todos os colaboradores RH
     Route::get('/colaborators', [App\Http\Controllers\ColaboratorsController::class, 'index'])->name('colaborators.all-colaborators');
     Route::get('/colaborators/details/{id}', [App\Http\Controllers\ColaboratorsController::class, 'show'])->name('colaborators.details');

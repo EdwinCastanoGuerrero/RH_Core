@@ -156,4 +156,14 @@ class RhManagementController extends Controller
 
         return redirect()->route('rh-management.index')->with('success', 'Collaborator deleted successfully.');
     }
+
+    public function restoreCollaborator($id){
+        Auth::user()->can('rh') ?: abort(403, 'You are not authorized to access this page');
+
+        //withTrashed() para poder restaurar o usuário mesmo que ele esteja deletado (soft delete)
+        $user = User::withTrashed()->findOrFail($id);
+        $user->restore();
+
+        return redirect()->route('rh-management.index')->with('success', 'Collaborator restored successfully.');
+    }
 }

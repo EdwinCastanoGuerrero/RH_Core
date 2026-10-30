@@ -57,13 +57,9 @@
                                     <a href="{{ route('rh-management.detailsCollaborator', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-danger ms-3"><i
                                             class="fas fa-eye me-2"></i>Details</a>
                                 @else
-                                    <form action="" method="POST" class="d-inline">
-                                        @csrf
-                                        @method('PATCH')
-                                        <button type="submit" class="btn btn-sm btn-outline-success ms-3"><i
-                                                class="fa-solid fa-trash-arrow-up me-2"></i>Restore</button>
-                                    </form>
-                @endif
+                                    <a href="{{ route('rh-management.restore-collaborator', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-success ms-3"><i
+                                            class="fa-solid fa-trash-arrow-up me-2"></i>Restore</a>
+                                @endif
             </div>
 
             </td>
