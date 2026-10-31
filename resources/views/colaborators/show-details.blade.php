@@ -37,12 +37,12 @@
                 </div>
 
                 <div class="col">
-                    <p>Address: <strong>{{ $user->userDetails->address }}</strong></p>
-                    <p>Zip code: <strong>{{ $user->userDetails->zip_code }}</strong></p>
-                    <p>City: <strong>{{ $user->userDetails->city }}</strong></p>
-                    <p>Phone: <strong>{{ $user->userDetails->phone }}</strong></p>
-                    <p>Admission date: <strong>{{ $user->userDetails->admission_date }}</strong></p>
-                    <p>Salary: <strong>{{ $user->userDetails->salary }} $</strong></p>
+                    <p>Address: <strong>{{ $user->userDetails->address ?? 'N/A' }}</strong></p>
+                    <p>Zip code: <strong>{{ $user->userDetails->zip_code ?? 'N/A' }}</strong></p>
+                    <p>City: <strong>{{ $user->userDetails->city ?? 'N/A' }}</strong></p>
+                    <p>Phone: <strong>{{ $user->userDetails->phone ?? 'N/A' }}</strong></p>
+                    <p>Admission date: <strong>{{ $user->userDetails->admission_date ?? 'N/A' }}</strong></p>
+                    <p>Salary: <strong>{{ $user->userDetails->salary ?? 'N/A' }} $</strong></p>
                 </div>
             </div>
         </div>

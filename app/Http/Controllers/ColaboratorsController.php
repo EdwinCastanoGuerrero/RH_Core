@@ -35,7 +35,7 @@ class ColaboratorsController extends Controller
             abort(404, 'Not Found');
         }
 
-        return view('colaborators.show-details', compact('colaborator'));
+        return view('colaborators.show-details', ['user' => $colaborator]);
     }
 
     public function delete($id){
@@ -73,5 +73,16 @@ class ColaboratorsController extends Controller
         $colaborator = User::withTrashed()->findOrFail($id);
         $colaborator->restore();
         return redirect()->route('colaborators.all-colaborators');
+    }
+
+    public function home()
+    {
+        Auth::user()->can('colaborator') ?: abort(403, 'You are not authorized to access this page');
+
+        $user = User::with('userDetails', 'department')
+                                 ->where('id', Auth::user()->id)
+                                 ->first();
+
+        return view('colaborators.show-details', compact('user'));
     }
 }
