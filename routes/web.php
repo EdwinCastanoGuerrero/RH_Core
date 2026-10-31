@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function(){
         } elseif (auth()->user()->role === 'rh') {
             return redirect()->route('rh-management.index');
         } else {
-            return redirect()->route('user.profile');
+            return redirect()->route('colaborators.home');
         }
     })->name('home');
 
@@ -81,6 +81,8 @@ Route::middleware('auth')->group(function(){
     Route::delete('/colaborators/delete-confirm/{id}', [App\Http\Controllers\ColaboratorsController::class, 'deleteConfirm'])->name('colaborators.deleteConfirm');
     //Rota para restaurar um colaborador
     Route::patch('/colaborators/restore/{id}', [App\Http\Controllers\ColaboratorsController::class, 'restore'])->name('colaborators.restore');
+    //rota para detalhes
+    Route::get('/colaborators', [App\Http\Controllers\ColaboratorsController::class, 'home'])->name('colaborators.home');
 });
 
 //Rota para confirmar a conta do usuário e definir a senha (acessível sem estar autenticado)
