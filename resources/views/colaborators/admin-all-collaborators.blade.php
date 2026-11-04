@@ -40,10 +40,10 @@
                                 @endif
                             </td>
 
-                            <td>{{ $colaborator->department->name }}</td>
+                            <td>{{ $colaborator->department?->name ?? 'N/A' }}</td>
                             <td>{{ $colaborator->role }}</td>
-                            <td>{{ $colaborator->userDetails->admission_date }}</td>
-                            <td>{{ $colaborator->userDetails->salary }} $</td>
+                            <td>{{ $colaborator->userDetails?->admission_date ?? 'N/A' }}</td>
+                            <td>{{ $colaborator->userDetails?->salary ?? 'N/A' }} $</td>
                             
                             <td>
                                 <div class="d-flex gap-3 justify-content-end">
