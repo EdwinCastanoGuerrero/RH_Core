@@ -1,6 +1,6 @@
 <div class="col-3">
     <div class="border p-5 shadow-sm">
-        <form action="{{ route('user.profile.update-user-data') }}" method="post">
+        <form action="{{ route('user.profile.update-user-address') }}" method="post">
 
             @csrf
 
@@ -45,11 +45,11 @@
         <button type="submit" class="btn btn-primary">Update user data</button>
     </div>
  </div>
-    </form>
+</form>
 
-    @if (session('success_change_data'))
+    @if (session('success_change_address'))
         <div class="alert alert-success mt-3" id="alert-change-data">
-            {{ session('success_change_data') }}
+            {{ session('success_change_address') }}
         </div>
         <script>
             setTimeout(function() {
