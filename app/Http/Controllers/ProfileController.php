@@ -61,5 +61,25 @@ class ProfileController extends Controller
         return back()->with('success_change_data', 'Dados do usuário atualizados com sucesso.');
     }
 
+    public function updateUserAddress(Request $request)
+    {
+        $validated = $request->validate([
+            'address' => 'required|string|min:2|max:100',
+            'city' => 'required|string|max:50',
+            'phone' => 'required|string|max:20',
+            'zip_code' => 'required|string|max:10',
+        ]);
+
+        $user = auth()->user();
+        $userDetails = $user->userDetails()->firstOrNew();
+
+        $userDetails->address = $validated['address'];
+        $userDetails->city = $validated['city'];
+        $userDetails->phone = $validated['phone'];
+        $userDetails->zip_code = $validated['zip_code'];
+        $userDetails->save();
+
+        return redirect()->back()->with('success_change_address', 'Endereço do usuário atualizado com sucesso.');
+    }
  
 }
