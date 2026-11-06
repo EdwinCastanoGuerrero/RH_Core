@@ -12,18 +12,18 @@
 
     <!-- user -->
     <div class="d-flex align-items-center">
-        <a href="#" class="user-identity d-flex align-items-center me-3">
-            <i class="fas fa-user-circle me-2" aria-hidden="true"></i>
+        <a href="{{ route('user.profile') }}" class="user-identity d-flex align-items-center me-3">
+            <i class="fas fa-user-circle fa-2x me-2" aria-hidden="true"></i>
             {{ auth()->user()->name }}
         </a>
 
-        {{-- logout --}}
+        {{-- logout
         <form action="{{ route('logout') }}" method="post">
             @csrf
             <button type="submit" class="btn btn-sm btn-danger">
                 <i class="fas fa-sign-out-alt"></i>
             </button>
-        </form>
+        </form> --}}
     </div>
 
 </div>

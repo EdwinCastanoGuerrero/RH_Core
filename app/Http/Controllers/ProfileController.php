@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +14,9 @@ class ProfileController extends Controller
      */
     public function index(): View
     {
-        return view('user.profile');
+        $collaborator = User::with('userDetails')->findorFail(auth()->id()); 
+
+        return view('user.profile', compact('collaborator'));
     }
 
     /**
