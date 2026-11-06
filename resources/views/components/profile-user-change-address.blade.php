@@ -1,4 +1,4 @@
-<div class="col-3">
+<div class="col-5">
     <div class="border p-5 shadow-sm">
         <form action="{{ route('user.profile.update-user-address') }}" method="post">
 
@@ -18,7 +18,7 @@
 
         <div class="mb-3">
             <label for="zip_code" class="form-label">Zip Code</label>
-            <input type="text" name="zip_code" id="zip_code" class="form-control">
+            <input type="text" name="zip_code" id="zip_code" class="form-control" value="{{ old('zip_code', $collaborator->userDetails->zip_code) }}">
             @error('zip_code')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
@@ -26,7 +26,7 @@
 
         <div class="mb-3 ">
             <label for="city" class="form-label">City</label>
-            <input type="text" name="city" id="city" class="form-control">
+            <input type="text" name="city" id="city" class="form-control" value="{{ old('city', $collaborator->userDetails->city) }}">
             @error('city')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
@@ -35,7 +35,7 @@
 
     <div class="mb-3">
         <label for="phone" class="form-label">Phone</label>
-        <input type="text" name="phone" id="phone" class="form-control">
+        <input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone', $collaborator->userDetails->phone) }}">
         @error('phone')
             <div class="text-danger">{{ $message }}</div>
         @enderror
