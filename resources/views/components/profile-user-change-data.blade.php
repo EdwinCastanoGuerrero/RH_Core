@@ -15,7 +15,7 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-
+            
             <div class="mb-3">
                 <label for="email" class="form-label">Email (Username)</label>
                 <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $collaborator->email) }}">
