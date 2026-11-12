@@ -54,8 +54,6 @@ class AdminController extends Controller
         $data['departments_count'] = User::withoutTrashed()->with('department')->get()->pluck('department')->unique('id')->count();
 
 
-        dd($data);
-
         //mostra a página de administração apenas se o usuário tiver permissão de admin
         return view('home', compact('data'));
     }
