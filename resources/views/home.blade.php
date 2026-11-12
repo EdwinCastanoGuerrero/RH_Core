@@ -4,7 +4,9 @@
         <h3>Home</h3>
         <hr>
 
-        home
+        <x-info-title-value title="Total de Funcionários" :value="$data['colaborators_count']" />
+        <x-info-title-value title="Total de Funcionários Inativos" :value="$data['inactive_colaborators_count']" />
+        <x-info-title-value title="Salário Total" :value="$data['total_salary']" />
     </div>
 
     
