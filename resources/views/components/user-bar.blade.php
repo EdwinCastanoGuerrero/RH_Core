@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between bg-color-1 text-white py-3 px-3">
+<div class="d-flex justify-content-between bg-transparent  border-secondary text-white py-3 px-3">
     
     <!-- logo -->
     <div class="d-flex align-items-center">
