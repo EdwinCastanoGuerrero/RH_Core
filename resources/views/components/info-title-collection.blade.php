@@ -4,7 +4,7 @@
         @foreach ($collection as $item)
             <tr>
                 <td>{{ $item['department'] }}</td>
-                <td class="text-right">
+                <td class="text-end">
                     {{ $item['total'] ?? $item['colaborators_count'] ?? $item['total_salary'] ?? 0 }}
                 </td>
             </tr>

@@ -8,6 +8,7 @@
             <x-info-title-value title="Total de Funcionários Inativos" :value="$data['inactive_colaborators_count']" />
             <x-info-title-value title="Salário Total" :value="$data['total_salary']" />
         </div>
+        <hr>
         <div class="d-flex">
             <x-info-title-collection title="Distribuição por Departamento" :collection="$data['colaborators_by_department']" />
             <x-info-title-collection title="Salário por Departamento" :collection="$data['salary_by_department']" />
