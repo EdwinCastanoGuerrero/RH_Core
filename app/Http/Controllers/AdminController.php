@@ -27,7 +27,7 @@ class AdminController extends Controller
         $salarySum = User::withoutTrashed()->with('userDetails')->get()->sum(function ($user) {
             return $user->userDetails->salary ?? 0;
         });
-        $data['total_salary'] = $salarySum;
+        $data['total_salary'] = number_format($salarySum, 2, ',', '.'). ' R$';
 
         //total de colaboradores por departamento
         $data['colaborators_by_department'] = User::withoutTrashed()->with('department')->get()->groupBy('department.name')->map(function ($colaborators, $departmentName) {
@@ -49,6 +49,14 @@ class AdminController extends Controller
                 'total_salary' => $totalSalary,
             ];
         })->values();
+
+        //formatar o salário total para exibição
+        $data['salary_by_department'] = $data['salary_by_department']->map(function ($department) {
+            return [
+                'department' => $department['department'],
+                'total_salary' => number_format($department['total_salary'], 2, ',', '.'). ' R$',
+            ];
+        });
 
         //obter o número de departamentos
         $data['departments_count'] = User::withoutTrashed()->with('department')->get()->pluck('department')->unique('id')->count();
