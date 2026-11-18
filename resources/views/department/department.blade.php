@@ -22,9 +22,9 @@
         
             <table class="table " id="table">
                 <thead class="table-dark">
-                    <tr>
-                        <th>Departments</th>
-                        <th></th>
+                    <tr class="bg-transparent">
+                        <th class="bg-transparent text-black">Departments</th>
+                        <th class="bg-transparent text-black"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,8 +32,8 @@
                     @foreach ($departments as $department)
                         
                         <tr>
-                            <td>{{ $department->name }}</td>
-                            <td>
+                            <td class="bg-transparent">{{ $department->name }}</td>
+                            <td class="bg-transparent">
                                 <div class="d-flex gap-3 justify-content-end">
                                     @if(!$department->isEditableOrDeletable())
                                         <i class="fa-solid fa-lock"></i>

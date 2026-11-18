@@ -2,9 +2,9 @@
     <h5 class="border-bottom border-primary pb-2">{{ $title }}</h5>
     <table class="table">
         @foreach ($collection as $item)
-            <tr>
-                <td>{{ $item['department'] }}</td>
-                <td class="text-end">
+            <tr >
+                <td class="bg-transparent">{{ $item['department'] }}</td>
+                <td class="text-end bg-transparent">
                     {{ $item['total'] ?? $item['colaborators_count'] ?? $item['total_salary'] ?? 0 }}
                 </td>
             </tr>
