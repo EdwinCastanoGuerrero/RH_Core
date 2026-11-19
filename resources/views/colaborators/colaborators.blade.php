@@ -16,7 +16,7 @@
             <div class="mb-3 text-start">
                 <a href="{{ route('rh-management.newCollaborator') }}" class="btn btn-primary">Create Collaborator</a>
             </div>
-            <table class="table" id="table">
+            <table class="table collaborators-table" id="table">
                 <thead class="table-dark">
                     <tr>
                         <th>Name</th>
@@ -56,7 +56,7 @@
                                             class="fa-regular fa-pen-to-square me-2"></i>Edit</a>
                                     <a href="{{ route('rh-management.delete-collaborator', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-danger ms-3"><i
                                             class="fa-regular fa-trash-can me-2"></i>Delete</a>
-                                    <a href="{{ route('rh-management.detailsCollaborator', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-danger ms-3"><i
+                                    <a href="{{ route('rh-management.detailsCollaborator', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-primary ms-3"><i
                                             class="fas fa-eye me-2"></i>Details</a>
                                 @else
                                     <a href="{{ route('rh-management.restore-collaborator', ['id' => $colaborator->id]) }}" class="btn btn-sm btn-outline-success ms-3"><i
