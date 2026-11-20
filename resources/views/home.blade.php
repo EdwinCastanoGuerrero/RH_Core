@@ -3,6 +3,15 @@
     <div class="w-100 p-4">
         <h3>Home</h3>
         <hr>
+
+        <div class="card bg-transparent p-4 m-2 shadow-sm text-center">
+            <img src="{{ asset('assets/images/logo.png') }}"
+                 alt="RH Core"
+                 class="img-fluid mx-auto"
+                 style="max-height: 240px;">
+        </div>
+        <hr>
+
         <div class="d-flex">
             <x-info-title-value title="Total de Funcionários" :value="$data['colaborators_count']" />
             <x-info-title-value title="Total de Funcionários Inativos" :value="$data['inactive_colaborators_count']" />
