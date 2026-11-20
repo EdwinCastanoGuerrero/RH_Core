@@ -11,19 +11,31 @@
     </div>
 
     <!-- user -->
-    <div class="d-flex align-items-center">
-        <a href="{{ route('user.profile') }}" class="user-identity d-flex align-items-center me-3">
+    <div class="dropdown d-flex align-items-center">
+        <button type="button"
+                class="user-identity dropdown-toggle d-flex align-items-center border-0 bg-transparent px-0"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
             <i class="fas fa-user-circle fa-2x me-2" aria-hidden="true"></i>
             {{ auth()->user()->name }}
-        </a>
+        </button>
 
-        {{-- logout
-        <form action="{{ route('logout') }}" method="post">
-            @csrf
-            <button type="submit" class="btn btn-sm btn-danger">
-                <i class="fas fa-sign-out-alt"></i>
-            </button>
-        </form> --}}
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+                <a class="dropdown-item" href="{{ route('user.profile') }}">
+                    <i class="fas fa-user me-2" aria-hidden="true"></i>User profile
+                </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="dropdown-item text-danger">
+                        <i class="fas fa-sign-out-alt me-2" aria-hidden="true"></i>Sair
+                    </button>
+                </form>
+            </li>
+        </ul>
     </div>
 
 </div>

@@ -30,11 +30,15 @@ body {
 .user-identity {
     color: var(--action-green-hover);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .user-identity:hover {
     color: var(--action-green);
 }
+
+
+
 
 .sidebar {
     /* background-color: #bbb; */
@@ -49,6 +53,7 @@ body {
     text-decoration: none;
     padding: 12px 10px;
     border-radius: 5px;
+    transition: color 0.2s ease, background-color 0.2s ease, border-radius 0.1s ease;
 }
 
 .sidebar hr {
