@@ -31,6 +31,12 @@ class User extends Authenticatable
         'confirmation_token_expires_at',
     ];
 
+    protected $casts = [
+        'permissions' => 'json',
+        'email_verified_at' => 'datetime',
+        'confirmation_token_expires_at' => 'datetime',
+    ];
+
     public function userDetails()
     {   
         //cada usuario pode ter um user_details.
