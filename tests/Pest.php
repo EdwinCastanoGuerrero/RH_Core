@@ -15,7 +15,7 @@ use Tests\TestCase;
 */
 
 pest()->extend(TestCase::class)
- // ->use(RefreshDatabase::class)
+    ->use(RefreshDatabase::class) //linha descomentada para alterar no banco e fazer testes com o banco de dados
     ->in('Feature');
 
 /*
